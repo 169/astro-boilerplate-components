@@ -5,6 +5,7 @@ import type { IFrontmatter } from '../types/IFrontMatter';
 
 type IBlogCardProps = {
   instance: MarkdownInstance<IFrontmatter>;
+  fit: boolean;
 };
 
 const BlogCard = (props: IBlogCardProps) => (
@@ -13,6 +14,7 @@ const BlogCard = (props: IBlogCardProps) => (
       <div className="aspect-w-3 aspect-h-2">
         <img
           className="h-full w-full object-cover object-center"
+          style={ props.fit ? { height: "auto"} : {} }
           src={props.instance.frontmatter.imgSrc}
           alt={props.instance.frontmatter.imgAlt}
           loading="lazy"
